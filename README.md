@@ -344,6 +344,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 }
 ```
 
+---
+
 ## Shell/Root
 
 ### 🗺️ Importmap (type="systemjs-importmap")

@@ -343,3 +343,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 }
 ```
+
+## Shell/Root
+
+### 🗺️ Importmap (type="systemjs-importmap")
+
+```html
+<script type="systemjs-importmap">
+  {
+    "imports": {
+      "@org/shared-data": "http://localhost:port/org-shared-data.js"
+      //...
+    }
+  }
+</script>
+```

@@ -160,9 +160,10 @@ npm run serve:single-spa
 npx create-single-spa --framework react --moduleType app-parcel --moduleFormat systemjs
 ```
 
-Selecione o gerenciador de pacotes (npm/yarn)
+📦 Durante o setup:
 
-Escolha sim para TypeScript
+- Escolha o gerenciador de pacotes (`npm` ou `yarn`)
+- Responda **"Yes"** para TypeScript
 
 ### 📦 Ajustes `package.json`
 
@@ -223,4 +224,122 @@ Adicione o mapa de importações para carregar seus MFEs e bibliotecas compartil
 
 ```html
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+```
+
+## 🔗 Compartilhar Dados entre MFEs (Micro Frontends)
+
+Como criar um módulo utilitário para compartilhar dados entre aplicações em **React** e **Angular** usando o padrão do `single-spa`.
+
+---
+
+### 🧱 Criar Módulo Compartilhado (`@fiap/shared-data`)
+
+Execute o comando abaixo para criar um módulo utilitário que será importado pelos MFEs:
+
+```bash
+npx create-single-spa --framework none --moduleType util-module --moduleFormat systemjs
+```
+
+📦 Durante o setup:
+
+- Escolha o gerenciador de pacotes (`npm` ou `yarn`)
+- Responda **"Yes"** para TypeScript
+
+---
+
+#### 🧾 Implementar o módulo `@fiap/shared-data`
+
+Você pode usar o exemplo abaixo (em TypeScript) para compartilhar dados entre MFEs usando `rxjs`:
+
+```ts
+// src/shared.ts
+import { BehaviorSubject } from "rxjs";
+
+export const $test = new BehaviorSubject<string>("");
+
+export function eventTest(value: string) {
+  $test.next(value);
+}
+```
+
+Esse módulo pode ser consumido por qualquer MFE (React, Angular, etc.) e propagará os dados via observables.
+
+---
+
+## ⚛️ React
+
+### 📁 Criar `types/extra.d.ts`
+
+```ts
+declare module "@fiap/shared-data";
+```
+
+### 🧾 Exemplo de uso no `org-nome-app.tsx`
+
+```tsx
+import { useEffect } from "react";
+import { $test, eventTest } from "@fiap/shared-data";
+
+export default function Root(props) {
+  function eventTestReact() {
+    eventTest("react");
+  }
+
+  useEffect(() => {
+    const subscription = $test.subscribe((value) => {
+      console.log("Valor recebido no React:", value);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  return (
+    <>
+      <section>{props.name} is mounted!</section>
+      <button onClick={eventTestReact}>eventTestReact</button>
+    </>
+  );
+}
+```
+
+---
+
+## 🅰️ Angular
+
+### 📁 Criar `types/extra.d.ts`
+
+```ts
+declare module "@fiap/shared-data";
+```
+
+### 🧾 Exemplo de uso no `home.component.ts`
+
+```ts
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { $test, eventTest } from "@fiap/shared-data";
+import { Subject, takeUntil } from "rxjs";
+
+@Component({
+  selector: "home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"],
+})
+export class HomeComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+
+  ngOnInit() {
+    $test.pipe(takeUntil(this.destroy$)).subscribe((value: any) => {
+      console.log("Valor recebido no Angular:", value);
+    });
+  }
+
+  eventTestAngular() {
+    eventTest("bla");
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+}
 ```

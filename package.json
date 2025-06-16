@@ -1,0 +1,20 @@
+{
+  "name": "mfes",
+  "version": "1.0.0",
+  "scripts": {
+    "start:mf-root": "cd mf-root && npm run start",
+    "start:mf-angular": "cd mf-angular && npm run serve:single-spa",
+    "start:mf-nav-angular": "cd mf-nav-angular && npm run serve:single-spa",
+    "start:mf-react": "cd mf-react && npm run start",
+    "start:mf-nav-react": "cd mf-nav-react && npm run start",
+    "start:all": "concurrently \"npm run start:mf-root\" \"npm run start:mf-angular\" \"npm run start:mf-nav-angular\" \"npm run start:mf-react\" \"npm run start:mf-nav-react\"",
+    "build:mf-angular": "cd mf-angular && npm run build:single-spa",
+    "build:mf-nav-angular": "cd mf-nav-angular && npm run build:single-spa",
+    "build:mf-react": "cd mf-react && npm run build",
+    "build:mf-nav-react": "cd mf-nav-react && npm run build",
+    "install:all": "cd mf-root && npm install && cd ../mf-angular && npm install && cd ../mf-nextjs && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

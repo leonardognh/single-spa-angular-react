@@ -13,9 +13,10 @@
     <script type="systemjs-importmap">
       {
         "imports": {
-          "mf-nav": "http://localhost:4300/main.js",
-          "mf-angular": "http://localhost:4301/main.js",
-          "@fiap/mf-react": "http://localhost:8080/fiap-mf-react.js",
+          "@fiap/mf-nav-angular": "http://localhost:4300/main.js",
+          "@fiap/mf-angular": "http://localhost:4301/main.js",
+          "@fiap/mf-nav-react": "http://localhost:8080/fiap-mf-nav-react.js",
+          "@fiap/mf-react": "http://localhost:8081/fiap-mf-react.js",
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
           "single-spa-layout": "https://unpkg.com/single-spa-layout@1.0.0-beta.2/dist/system/single-spa-layout.min.js",
           "react": "https://unpkg.com/react@16.12.0/umd/react.production.min.js",
@@ -41,11 +42,11 @@
     <template id="single-spa-layout">
       <single-spa-router>
         <nav class="topnav">
-          <application name="mf-nav"></application>
+          <application name="@fiap/mf-nav-react"></application>
         </nav>
         <div class="main-content">
-          <route path="mf-angular">
-            <application name="mf-angular"></application>
+          <route path="@fiap/mf-angular">
+            <application name="@fiap/mf-angular"></application>
           </route>
           <route path="@fiap/mf-react">
             <application name="@fiap/mf-react"></application>

@@ -24,9 +24,11 @@
     "@babel/runtime": "^7.23.3",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
+    "autoprefixer": "^10.4.16",
     "babel-jest": "^27.5.1",
     "concurrently": "^6.2.1",
     "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-ts-react-important-stuff": "^3.0.0",
@@ -35,8 +37,12 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
+    "postcss": "^8.4.31",
+    "postcss-loader": "^7.3.3",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
+    "style-loader": "^3.3.3",
+    "tailwindcss": "^3.3.5",
     "ts-config-single-spa": "^3.0.0",
     "typescript": "^4.3.5",
     "webpack": "^5.89.0",
@@ -46,7 +52,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.10",
     "@types/jest": "^27.0.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
@@ -56,8 +61,7 @@
     "react-dom": "^18.0.0",
     "react-icons": "^5.5.0",
     "single-spa": "^5.9.3",
-    "single-spa-react": "^6.0.2",
-    "tailwindcss": "^4.1.10"
+    "single-spa-react": "^6.0.2"
   },
   "types": "dist/fiap-mf-react.d.ts"
 }

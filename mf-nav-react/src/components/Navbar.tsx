@@ -17,10 +17,8 @@ const Navbar = () => {
 
   return (
     <div className="bg-black flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-      {/* Logo */}
       <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
 
-      {/* Desktop Navigation */}
       <ul className="hidden md:flex">
         {navItems.map((item) => (
           <li
@@ -32,12 +30,10 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className="block md:hidden">
         {nav ? "X" : "="}
       </div>
 
-      {/* Mobile Navigation Menu */}
       <ul
         className={
           nav
@@ -45,10 +41,8 @@ const Navbar = () => {
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
-        {/* Mobile Logo */}
         <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1>
 
-        {/* Mobile Navigation Items */}
         {navItems.map((item) => (
           <li
             key={item.id}

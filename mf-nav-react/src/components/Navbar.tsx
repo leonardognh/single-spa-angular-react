@@ -8,16 +8,16 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { id: 1, text: "Home" },
-    { id: 2, text: "Company" },
-    { id: 3, text: "Resources" },
-    { id: 4, text: "About" },
-    { id: 5, text: "Contact" },
+    { id: 1, text: "Home", link: "/" },
+    { id: 2, text: "Angular", link: "/@fiap/mf-angular" },
+    { id: 3, text: "React", link: "/@fiap/mf-react" },
   ];
 
   return (
     <div className="bg-black flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-      <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
+      <h1 className="w-full text-3xl font-bold text-[#00df9a]">
+        MFEs SINGLE-SPA: Angular e React
+      </h1>
 
       <ul className="hidden md:flex">
         {navItems.map((item) => (
@@ -25,7 +25,7 @@ const Navbar = () => {
             key={item.id}
             className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
           >
-            {item.text}
+            <a href={item.link}>{item.text}</a>
           </li>
         ))}
       </ul>

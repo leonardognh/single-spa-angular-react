@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 
 export default function Root() {
   return (
-    <div>
+    <div className="bg-black">
       <Navbar />
     </div>
   );

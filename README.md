@@ -187,6 +187,8 @@ Por:
 import ReactDOM from "react-dom";
 ```
 
+---
+
 ## 🧠 Confiração Root/Shell
 
 ### 🗺️ Importmap (type="systemjs-importmap")

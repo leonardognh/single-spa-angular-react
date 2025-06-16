@@ -170,8 +170,8 @@ npx create-single-spa --framework react --moduleType app-parcel --moduleFormat s
 ```json
 "react": "^18.0.0",
 "react-dom": "^18.0.0",
-"@types/react": "^16.3.0",
-"@types/react-dom": "^16.3.0"
+"@types/react": "^18.3.12",
+"@types/react-dom": "^18.3.1"
 ```
 
 ### 🧾 Ajustes `org-nome-app.tsx`

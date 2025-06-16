@@ -1,17 +1,9 @@
-export default function Root(props) {
+import Navbar from "./components/Navbar";
+
+export default function Root() {
   return (
-    <section>
-      <nav>
-        <li>
-          <a href="/"> Home </a>
-        </li>
-        <li>
-          <a href="/@fiap/mf-angular"> MF Angular </a>
-        </li>
-        <li>
-          <a href="/@fiap/mf-react"> MF React </a>
-        </li>
-      </nav>
-    </section>
+    <div>
+      <Navbar />
+    </div>
   );
 }

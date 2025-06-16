@@ -13,7 +13,7 @@
     "build:mf-nav-angular": "cd mf-nav-angular && npm run build:single-spa",
     "build:mf-react": "cd mf-react && npm run build",
     "build:mf-nav-react": "cd mf-nav-react && npm run build",
-    "install:all": "cd mf-root && npm install && cd ../mf-angular && npm install && cd ../mf-nextjs && npm install"
+    "install:all": "cd shared-data && npm install && cd ../mf-root && npm install && cd ../mf-angular && npm install && cd ../mf-react && npm install && cd ../mf-nav-react && npm install && cd ../mf-nav-angular && npm install"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
